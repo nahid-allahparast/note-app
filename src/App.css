@@ -1,0 +1,70 @@
+#root {
+  margin: 0 auto;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg--color);
+  color: var(--text--100);
+  width: 60%;
+  height: 80vh;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  overflow: auto;
+}
+.app-body {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+.note-body {
+  width: 60%;
+}
+.note-item {
+  border-radius: 20px;
+  color: var(--bg--color);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.note-item-1 {
+  background-color: var(--note--1);
+}
+.note-item-2 {
+  background-color: var(--note--2);
+}
+.note-item-3 {
+  background-color: var(--note--3);
+}
+.add-new-note {
+  display: flex;
+  flex-direction: column;
+}
+.note-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top: 1rem;
+}
+.text-input {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  height: 35px;
+  margin-bottom: 1rem;
+  background-color: var(--dark--200);
+}
+.btn {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  border-radius: 10px;
+  color: var(--text--100);
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+.btn--primary {
+  background-color: #e93758;
+}
