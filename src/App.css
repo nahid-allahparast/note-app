@@ -28,6 +28,7 @@
   color: var(--bg--color);
   padding: 0.5rem;
   margin-bottom: 1rem;
+  height: 100px;
 }
 .note-item-1 {
   background-color: var(--note--1);
@@ -55,6 +56,12 @@
   height: 35px;
   margin-bottom: 1rem;
   background-color: var(--dark--200);
+  color: var(--text--100);
+  padding: 0 0.5rem;
+}
+
+input::placeholder {
+  color: var(--text--200);
 }
 .btn {
   border: none;
@@ -66,5 +73,30 @@
   cursor: pointer;
 }
 .btn--primary {
-  background-color: #e93758;
+  background-color: var(--red--primary);
+}
+.note-Item__header {
+  display: flex;
+  justify-content: space-between;
+}
+.date {
+  font-weight: 100 !important;
+  font-size: 0.7rem;
+  color: var(--text--300);
+}
+.note-Item__header__tools {
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
+}
+.delete {
+  font-size: 1.4rem;
+  color: var(--red--primary);
+  transition: 300ms;
+}
+.delete:hover {
+  font-size: 1.6rem;
+}
+.check-completed {
+  width: 20px;
 }

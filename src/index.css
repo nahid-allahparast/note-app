@@ -1,7 +1,11 @@
 :root {
   --bg--color: #251f48;
-  --text--100: #ffffff;
   --dark--200: #504982;
+  --text--100: #ffffff;
+  --text--200: #e7e7e7e7;
+  --text--300: #939393;
+  --text--400: #838383;
+  --red--primary: #e93758;
   --note--1: #dabbfa;
   --note--2: #fff5e2;
   --note--3: #d7f8f2;
@@ -12,6 +16,7 @@
   box-sizing: border-box;
 }
 body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background: rgb(86, 81, 112);
   background: linear-gradient(
     180deg,
@@ -21,4 +26,10 @@ body {
   );
   height: 100vh;
   width: 100vw;
+}
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
 }
