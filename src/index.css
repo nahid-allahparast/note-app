@@ -9,6 +9,7 @@
   --note--1: #dabbfa;
   --note--2: #fff5e2;
   --note--3: #d7f8f2;
+  --note--4: #f7d7d7;
 }
 * {
   padding: 0;
@@ -16,7 +17,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background: rgb(86, 81, 112);
   background: linear-gradient(
     180deg,

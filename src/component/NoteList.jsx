@@ -5,37 +5,43 @@ const NoteList = ({ notes }) => {
   return (
     <div className="note-list">
       {notes.map((note, index) => (
-        <NoteItem index={index} notes={notes} key={note.id} />
+        <NoteItem index={index} note={note} key={note.id} />
       ))}
-      <div className="note-item note-item-1">item 1</div>
-      <div className="note-item note-item-2">item 2</div>
-      <div className="note-item note-item-3">item 3</div>
     </div>
   );
 };
 
 export default NoteList;
 
-const NoteItem = ({ index }) => {
-  console.log(index % 3);
-
+const NoteItem = ({ index, note }) => {
+  const dateOptions = { year: "numeric", month: "long", day: "numeric" };
   return (
     <div
       className={`note-item ${
-        index % 3 === 0
+        index % 4 === 0
           ? "note-item-1"
-          : index % 3 === 1
+          : index % 4 === 1
           ? "note-item-2"
-          : "note-item-3"
+          : index % 4 === 2
+          ? "note-item-3"
+          : "note-item-4"
       }`}
     >
-      <div className="note-item__content">
-        <h5>test</h5>
-        <p>content</p>
+      <div className="note-item__header">
+        <div>
+          <h4 className="title">{note.titleNote}</h4>
+          <p className="desc">{note.descNote}</p>
+        </div>
+        <div className="actions">
+          <button className="delete">
+            <CiTrash />
+          </button>
+
+          <input type="checkbox" />
+        </div>
       </div>
-      <div className="note-item__tools">
-        <CiTrash />
-        <div>date</div>
+      <div className="note-item__footer">
+        {new Date(note.createdAt).toLocaleDateString("en-US", dateOptions)}
       </div>
     </div>
   );
