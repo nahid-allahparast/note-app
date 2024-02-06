@@ -98,7 +98,7 @@ input::placeholder {
 }
 .note-item__footer {
   font-size: 0.8rem;
-  color: var(--text--300);
+  color: var(--text--400);
   text-align: center;
 }
 .actions {
@@ -128,22 +128,33 @@ input::placeholder {
 }
 .completed {
   text-decoration: line-through;
+  opacity: 0.5;
+}
+.not-note {
+  color: var(--red--primary);
+  text-align: center;
+}
+.note-status {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  color: var(--note--4);
+  font-size: 0.8rem;
+}
+.note-status li {
+  display: flex;
 }
 
-@media screen and (max-width: 768px) {
-  .app-body {
-    display: flex;
-    flex-direction: column;
-  }
-  .main {
-    width: 90%;
-  }
-  .note-body {
-    margin-top: 1rem;
-    width: 100%;
-  }
+.note-status__quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.3rem;
+  background-color: var(--dark--200);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
 }
-
 @layer properties {
   @property --icon-opacity {
     syntax: "<number>";
@@ -262,5 +273,19 @@ label[for*="checkbox"] {
     &:checked {
       background-color: #8e4ceb;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .main {
+    width: 90%;
+  }
+  .note-body {
+    margin-top: 1rem;
+    width: 100%;
   }
 }

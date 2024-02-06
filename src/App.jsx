@@ -18,7 +18,6 @@ const App = () => {
         note.id === noteId ? { ...note, completed: !note.completed } : note
       )
     );
-    console.log(e.target.checked);
   };
   return (
     <div className="main">

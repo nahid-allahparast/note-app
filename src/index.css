@@ -9,9 +9,8 @@
   --note--1: #dabbfa;
   --note--2: #fff5e2;
   --note--3: #d7f8f2;
-  --note--4: #D7D1F6;
-  --note--completed: #c3bbee;
-  
+  --note--4: #c3bbee;
+  --note--completed: #d7d1f6;
 }
 * {
   padding: 0;
@@ -35,4 +34,7 @@ button {
   outline: none;
   background-color: transparent;
   cursor: pointer;
+}
+li {
+  list-style-type: none;
 }

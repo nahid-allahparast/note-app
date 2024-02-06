@@ -1,9 +1,10 @@
 import NoteList from "./NoteList";
+import NoteStatus from "./NoteStatus";
 
 const NoteBody = ({ notes, onDelete, onCompleted }) => {
   return (
     <div className="note-body">
-      <div className="note-Header"></div>
+      <NoteStatus notes={notes} />
       <NoteList notes={notes} onDelete={onDelete} onCompleted={onCompleted} />
     </div>
   );
