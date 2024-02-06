@@ -1,11 +1,23 @@
 import { useState } from "react";
 import { CiTrash } from "react-icons/ci";
 
-const NoteList = ({ notes, onDelete, onCompleted }) => {
+const NoteList = ({ notes, onDelete, onCompleted,sortBy }) => {
+  let sortedNotes = notes;
+  if (sortBy === "earliest")
+    sortedNotes = [...sortedNotes].sort(
+      (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+    );
+  if (sortBy === "latest")
+    sortedNotes = [...sortedNotes].sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+  if (sortBy === "completed")
+    sortedNotes = [...sortedNotes].sort(
+      (a, b) => Number(b.completed) - Number(a.completed)
+    );
   return (
-    
     <div className="note-list">
-      {notes.map((note, index) => (
+      {sortedNotes.map((note, index) => (
         <NoteItem
           index={index}
           note={note}
@@ -58,7 +70,6 @@ const NoteItem = ({ index, note, onDelete, onCompleted }) => {
             />
           </label>
         </div>
-        
       </div>
       <div className="note-item__footer">
         {new Date(note.createdAt).toLocaleDateString("en-US", dateOptions)}

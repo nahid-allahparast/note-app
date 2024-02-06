@@ -20,6 +20,23 @@
   justify-content: space-between;
   padding-top: 2rem;
 }
+.note-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between
+  ;
+  align-items: center;
+}
+.note-header select {
+  border: none;
+  outline: none;
+  width: 200px;
+  background-color: var(--dark--200);
+  color: #fff;
+  border-radius: 9px;
+  height: 30px;
+  padding: 0 0.5rem;
+}
 .note-body {
   width: 60%;
 }
@@ -133,6 +150,7 @@ input::placeholder {
 .not-note {
   color: var(--red--primary);
   text-align: center;
+  font-weight: 400;
 }
 .note-status {
   display: flex;
