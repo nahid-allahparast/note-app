@@ -1,16 +1,11 @@
 import NoteList from "./NoteList";
 import NoteStatus from "./NoteStatus";
 
-const NoteBody = ({ notes, onDelete, onCompleted, sortBy }) => {
+const NoteBody = ({ sortBy }) => {
   return (
     <div className="note-body">
-      <NoteStatus notes={notes} />
-      <NoteList
-        notes={notes}
-        onDelete={onDelete}
-        onCompleted={onCompleted}
-        sortBy={sortBy}
-      />
+      <NoteStatus />
+      <NoteList sortBy={sortBy} />
     </div>
   );
 };

@@ -1,7 +1,8 @@
-import { useState } from "react";
 import { CiTrash } from "react-icons/ci";
+import { useNotes, useNotesDispatch } from "../context/NoteContext";
 
-const NoteList = ({ notes, onDelete, onCompleted,sortBy }) => {
+const NoteList = ({ sortBy }) => {
+  const notes = useNotes();
   let sortedNotes = notes;
   if (sortBy === "earliest")
     sortedNotes = [...sortedNotes].sort(
@@ -17,14 +18,8 @@ const NoteList = ({ notes, onDelete, onCompleted,sortBy }) => {
     );
   return (
     <div className="note-list">
-      {sortedNotes.map((note, index) => (
-        <NoteItem
-          index={index}
-          note={note}
-          key={note.id}
-          onDelete={onDelete}
-          onCompleted={onCompleted}
-        />
+      {sortedNotes.map((note) => (
+        <NoteItem note={note} key={note.id} />
       ))}
     </div>
   );
@@ -32,7 +27,8 @@ const NoteList = ({ notes, onDelete, onCompleted,sortBy }) => {
 
 export default NoteList;
 
-const NoteItem = ({ index, note, onDelete, onCompleted }) => {
+const NoteItem = ({ note }) => {
+  const dispatch = useNotesDispatch();
   const dateOptions = { year: "numeric", month: "long", day: "numeric" };
   return (
     <div
@@ -55,7 +51,10 @@ const NoteItem = ({ index, note, onDelete, onCompleted }) => {
           <p className="desc">{note.descNote}</p>
         </div>
         <div className="actions">
-          <button onClick={() => onDelete(note.id)} className="delete">
+          <button
+            onClick={()=>dispatch({ type: "DELETE_NOTE", payload: note.id })}
+            className="delete"
+          >
             <CiTrash />
           </button>
 
@@ -64,7 +63,10 @@ const NoteItem = ({ index, note, onDelete, onCompleted }) => {
               type="checkbox"
               id="toggle"
               name="toggle"
-              onChange={onCompleted}
+              onChange={(e) => {
+                const noteId = Number(e.target.value);
+                dispatch({ type: "COMPLETED_NOTE", payload: noteId });
+              }}
               checked={note.completed}
               value={note.id}
             />

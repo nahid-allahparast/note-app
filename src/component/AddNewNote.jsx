@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNotesDispatch } from "../context/NoteContext";
 
-const AddNewNote = ({ onAddNote }) => {
+const AddNewNote = () => {
+  const dispatch = useNotesDispatch();
   const [titleNote, setTitleNote] = useState("");
   const [descNote, setDescNote] = useState("");
 
@@ -14,7 +16,7 @@ const AddNewNote = ({ onAddNote }) => {
       completed: false,
       createdAt: new Date().toISOString(),
     };
-    onAddNote(newNote);
+    dispatch({ type: "ADD_NOTE", payload: newNote });
     setTitleNote("");
     setDescNote("");
   };
